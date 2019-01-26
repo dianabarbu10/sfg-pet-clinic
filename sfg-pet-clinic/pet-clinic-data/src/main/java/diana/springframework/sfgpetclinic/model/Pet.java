@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pet {
+public class Pet extends BaseEntity {
 	private PetType petType;
 	private Owner owner;
 	private LocalDate birthDay;
