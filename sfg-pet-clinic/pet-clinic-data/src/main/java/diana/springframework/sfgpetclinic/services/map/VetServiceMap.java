@@ -2,12 +2,15 @@ package diana.springframework.sfgpetclinic.services.map;
 
 import java.util.Set;
 
-import diana.springframework.sfgpetclinic.model.Vet;
-import diana.springframework.sfgpetclinic.services.CRUDService;
+import org.springframework.stereotype.Service;
 
+import diana.springframework.sfgpetclinic.model.Vet;
+import diana.springframework.sfgpetclinic.services.VetService;
+
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long>
 		implements
-			CRUDService<Vet, Long> {
+			VetService {
 	@Override
 	public Set<Vet> findAll() {
 		return super.findAll();

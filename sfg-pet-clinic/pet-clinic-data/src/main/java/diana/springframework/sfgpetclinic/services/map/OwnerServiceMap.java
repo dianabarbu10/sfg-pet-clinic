@@ -2,12 +2,15 @@ package diana.springframework.sfgpetclinic.services.map;
 
 import java.util.Set;
 
-import diana.springframework.sfgpetclinic.model.Owner;
-import diana.springframework.sfgpetclinic.services.CRUDService;
+import org.springframework.stereotype.Service;
 
+import diana.springframework.sfgpetclinic.model.Owner;
+import diana.springframework.sfgpetclinic.services.OwnerService;
+
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long>
 		implements
-			CRUDService<Owner, Long> {
+			OwnerService {
 	@Override
 	public Set<Owner> findAll() {
 		return super.findAll();
@@ -29,5 +32,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long>
 	@Override
 	public void deleteById(Long id) {
 		super.deleteById(id);
+	}
+	@Override
+	public Owner findByLastName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
