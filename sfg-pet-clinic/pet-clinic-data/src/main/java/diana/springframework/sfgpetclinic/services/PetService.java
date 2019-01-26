@@ -1,14 +1,7 @@
 package diana.springframework.sfgpetclinic.services;
 
-import java.util.Set;
-
 import diana.springframework.sfgpetclinic.model.Pet;
 
-public interface PetService {
+public interface PetService extends CRUDService<Pet, Long> {
 
-	Pet findById();
-
-	Pet save(Pet pet);
-
-	Set<Pet> findAll();
 }
