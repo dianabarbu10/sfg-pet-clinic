@@ -1,7 +1,6 @@
 package diana.springframework.sfgpetclinic.springdatajpa;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,7 @@ public class VetSDJpaService implements VetService {
 
 	@Override
 	public Vet findById(Long id) {
-		Optional<Vet> vet = vetRepository.findById(id);
-		if (vet.isPresent())
-			return vet.get();
-		return null;
+		return vetRepository.findById(id).orElse(null);
 	}
 
 	@Override

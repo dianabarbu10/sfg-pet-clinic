@@ -1,7 +1,6 @@
 package diana.springframework.sfgpetclinic.springdatajpa;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +25,7 @@ public class OwnerSDJpaService implements OwnerService {
 
 	@Override
 	public Owner findById(Long id) {
-		Optional<Owner> owner = ownerRepository.findById(id);
-		if (owner.isPresent())
-			return owner.get();
-		return null;
+		return ownerRepository.findById(id).orElse(null);
 	}
 
 	@Override
