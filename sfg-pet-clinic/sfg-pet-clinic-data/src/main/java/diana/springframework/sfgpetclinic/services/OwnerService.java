@@ -4,6 +4,6 @@ import diana.springframework.sfgpetclinic.model.Owner;
 
 public interface OwnerService extends CRUDService<Owner, Long> {
 
-	Owner findByLastName();
+	Owner findByLastName(String lastName);
 
 }
