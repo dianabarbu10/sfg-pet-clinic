@@ -11,10 +11,12 @@ import diana.springframework.sfgpetclinic.model.Pet;
 import diana.springframework.sfgpetclinic.model.PetType;
 import diana.springframework.sfgpetclinic.model.Speciality;
 import diana.springframework.sfgpetclinic.model.Vet;
+import diana.springframework.sfgpetclinic.model.Visit;
 import diana.springframework.sfgpetclinic.services.OwnerService;
 import diana.springframework.sfgpetclinic.services.PetTypeService;
 import diana.springframework.sfgpetclinic.services.SpecialityService;
 import diana.springframework.sfgpetclinic.services.VetService;
+import diana.springframework.sfgpetclinic.services.VisitService;
 import lombok.AllArgsConstructor;
 
 @Component
@@ -32,6 +34,9 @@ public class DataLoader implements CommandLineRunner {
 
 	@Autowired
 	private final SpecialityService specialityService;
+
+	@Autowired
+	private final VisitService visitService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -88,6 +93,13 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner2);
 
 		System.out.println("Loaded Owners....");
+
+		Visit catVisit = new Visit();
+		catVisit.setPet(fionasCat);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("Sneezy kitty");
+
+		visitService.save(catVisit);
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
