@@ -8,7 +8,7 @@ import diana.springframework.sfgpetclinic.model.Owner;
 import diana.springframework.sfgpetclinic.services.OwnerService;
 
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long>
+public class OwnerMapService extends AbstractMapService<Owner, Long>
 		implements
 			OwnerService {
 	@Override

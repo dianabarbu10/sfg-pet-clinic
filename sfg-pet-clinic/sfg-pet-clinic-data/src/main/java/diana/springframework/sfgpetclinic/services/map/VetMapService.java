@@ -8,7 +8,7 @@ import diana.springframework.sfgpetclinic.model.Vet;
 import diana.springframework.sfgpetclinic.services.VetService;
 
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long>
+public class VetMapService extends AbstractMapService<Vet, Long>
 		implements
 			VetService {
 	@Override

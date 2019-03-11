@@ -4,28 +4,28 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-import diana.springframework.sfgpetclinic.model.PetType;
-import diana.springframework.sfgpetclinic.services.PetTypeService;
+import diana.springframework.sfgpetclinic.model.Speciality;
+import diana.springframework.sfgpetclinic.services.SpecialityService;
 
 @Service
-public class PetTypeServiceMap extends AbstractMapService<PetType, Long>
+public class SpecialityMapService extends AbstractMapService<Speciality, Long>
 		implements
-			PetTypeService {
+			SpecialityService {
 	@Override
-	public Set<PetType> findAll() {
+	public Set<Speciality> findAll() {
 		return super.findAll();
 	}
 	@Override
-	public PetType findById(Long id) {
+	public Speciality findById(Long id) {
 		return super.findById(id);
 	}
 
 	@Override
-	public PetType save(PetType petType) {
+	public Speciality save(Speciality petType) {
 		return super.save(petType);
 	}
 	@Override
-	public void delete(PetType petType) {
+	public void delete(Speciality petType) {
 		super.delete(petType);
 	}
 
