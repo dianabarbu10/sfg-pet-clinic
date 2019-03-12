@@ -13,6 +13,7 @@ import diana.springframework.sfgpetclinic.model.Speciality;
 import diana.springframework.sfgpetclinic.model.Vet;
 import diana.springframework.sfgpetclinic.model.Visit;
 import diana.springframework.sfgpetclinic.services.OwnerService;
+import diana.springframework.sfgpetclinic.services.PetService;
 import diana.springframework.sfgpetclinic.services.PetTypeService;
 import diana.springframework.sfgpetclinic.services.SpecialityService;
 import diana.springframework.sfgpetclinic.services.VetService;
@@ -25,6 +26,9 @@ public class DataLoader implements CommandLineRunner {
 
 	@Autowired
 	private final OwnerService ownerService;
+
+	@Autowired
+	private final PetService petService;
 
 	@Autowired
 	private final VetService vetService;
@@ -67,6 +71,8 @@ public class DataLoader implements CommandLineRunner {
 		owner1.setCity("Miami");
 		owner1.setTelephone("1231231234");
 
+		ownerService.save(owner1);
+
 		Pet mikesPet = new Pet();
 		mikesPet.setPetType(savedDogPetType);
 		mikesPet.setOwner(owner1);
@@ -74,7 +80,7 @@ public class DataLoader implements CommandLineRunner {
 		mikesPet.setName("Rosco");
 		owner1.getPets().add(mikesPet);
 
-		ownerService.save(owner1);
+		petService.save(mikesPet);
 
 		Owner owner2 = new Owner();
 		owner2.setFirstName("Fiona");
@@ -83,14 +89,17 @@ public class DataLoader implements CommandLineRunner {
 		owner2.setCity("Miami");
 		owner2.setTelephone("1231231234");
 
+		ownerService.save(owner2);
+
 		Pet fionasCat = new Pet();
 		fionasCat.setName("Just Cat");
 		fionasCat.setOwner(owner2);
 		fionasCat.setBirthDate(LocalDate.now());
 		fionasCat.setPetType(savedCatPetType);
+
 		owner2.getPets().add(fionasCat);
 
-		ownerService.save(owner2);
+		petService.save(fionasCat);
 
 		System.out.println("Loaded Owners....");
 
