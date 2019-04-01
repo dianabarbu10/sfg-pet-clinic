@@ -10,4 +10,6 @@ public interface CRUDService<T, ID> {
 	Set<T> findAll();
 
 	void delete(T object);
+
+	void deleteById(Long aLong);
 }
